@@ -2,7 +2,7 @@
 
 This program was written in order to expirement with networking functions and specifically the socket class. It utilizes a chat system for two computers to communicate and also a system by which the most recent conversation can be recalled for the two computers. By doing so, I hope to gain a greater knowledge of this topic and expand my programming repetoire.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.youtube.com/watch?v=AKBqmmwy9SI)
 
 # Network Communication
 
