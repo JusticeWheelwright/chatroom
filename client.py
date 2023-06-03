@@ -1,7 +1,7 @@
 import time, socket, sys
 
 #sets up client
-socket_server = socket.socket()
+socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_host = socket.gethostname()
 ip = socket.gethostbyname(server_host)
 sport = 8080
@@ -25,11 +25,11 @@ cont = input("continue last conversation? (y/n)")
 socket_server.send(cont.encode())
 
 #recieves content of last conversation from the server and prints until the file holding the conversation is empty
-log = True
-while log != False:
+log = "y"
+while log != "":
     message = (socket_server.recv(1024)).decode()
-    if message == False:
-        log = False
+    if message == "":
+        log = ""
     else:
         print(message)
 

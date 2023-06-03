@@ -1,23 +1,23 @@
 import time, socket, sys
 
 # create server 
-new_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host_name = socket.gethostname()
 s_ip = socket.gethostbyname(host_name)
  
 port = 8080
  
 # bind socket and then create user name for conversations
-new_socket.bind((host_name, port))
+sock.bind((host_name, port))
 print("your IP: ", s_ip)
  
 name = input('Enter name: ')
  
 # listen for client
-new_socket.listen(1) 
+sock.listen(1) 
  
 # accept client
-conn, add = new_socket.accept()
+conn, add = sock.accept()
  
 print("Received connection from ", add[0])
 print('Connection Established. Connected From: ',add[0])
@@ -27,9 +27,9 @@ client = (conn.recv(1024)).decode()
 print(client + ' connected.')
 
 # file system - gets message from the client on whether they want to continue previous conversation or not
+conn.send(name.encode())
 message = conn.recv(1024)
 message = message.decode()
-conn.send(name.encode())
 f = open("log.txt")
 # if client wants to continue conversation
 if message == "y":
@@ -50,10 +50,12 @@ else:
 # main loop - takes input, sends it to client and also prints out messages from the client. 
 # This function also prints out all messages, to file so it can be continued later
 while True:
-    message = input(host_name, ':')
-    f.write(host_name, ':', message)
+    message = input('Me:')
+    message = host_name+':'+message
+    f.write(message)
     conn.send(message.encode())
     message = conn.recv(1024)
     message = message.decode()
-    f.write(client, ':', message)
+    message = client+':'+message
+    f.write(message)
     print(client, ':', message)
