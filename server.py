@@ -35,12 +35,11 @@ f = open("log.txt")
 if message == "y":
     # reads all the contents of the file and prints them out locally and encodes them to the client until it reaches the end of the file
     for line in f:
-        message = f.readline()
-        if message == '':
-            conn.send(False)
+        if line == '':
+            conn.send("")
         else:
-            print(message)
-            conn.send(message.encode())
+            print(line)
+            conn.send(line.encode())
     f = open("log.txt", "a")
 # if user does not want to continue previous conversation, overwrite the file
 else:
@@ -58,4 +57,4 @@ while True:
     message = message.decode()
     message = client+':'+message
     f.write(message)
-    print(client, ':', message)
+    print(client+':'+message)
