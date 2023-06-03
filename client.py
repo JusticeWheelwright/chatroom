@@ -21,17 +21,18 @@ server_name = server_name.decode()
 
 #asks the user if they want to continue the last conversation and returns the response to the server
 print(server_name,' has joined...')
-cont = input("continue last conversation? (y/n)")
+'''cont = input("continue last conversation? (y/n)")
 socket_server.send(cont.encode())
 
 #recieves content of last conversation from the server and prints until the file holding the conversation is empty
 while cont == "y":
     message = (socket_server.recv(1024)).decode()
-    if message == "":
+    if message == False:
         cont = "n"
+        break
     else:
         print(message)
-
+'''
 # recieves and prints messages to the server
 while True:
     message = (socket_server.recv(1024)).decode()
