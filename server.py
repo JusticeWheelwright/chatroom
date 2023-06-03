@@ -1,4 +1,4 @@
-import time, socket, sys
+import socket
 
 # create server 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -28,7 +28,7 @@ print(client + ' connected.')
 
 # file system - gets message from the client on whether they want to continue previous conversation or not
 conn.send(name.encode())
-'''message = conn.recv(1024)
+message = conn.recv(1024)
 message = message.decode()
 f = open("log.txt")
 # if client wants to continue conversation
@@ -37,9 +37,7 @@ if message == "y":
     for line in f:
         print(line.strip())
         conn.send(line.encode())
-    f = open("log.txt", "a")
 # if user does not want to continue previous conversation, overwrite the file
-else:'''
 f = open("log.txt", "w")
 
 # main loop - takes input, sends it to client and also prints out messages from the client. 
