@@ -24,3 +24,4 @@ This program was developed using Visual studio code and python. The only require
 
 * fix the interaction with recalling previous conversations so that the client side can move onto the the conversation portion of the program
 * implement more complex functions and program flow to enable more versatile tasks
+* implement actual end program functions

@@ -43,6 +43,7 @@ f = open("log.txt", "w")
 # main loop - takes input, sends it to client and also prints out messages from the client. 
 # This function also prints out all messages, to file so it can be continued later
 while True:
+    f = open("log.txt", "a")
     message = input('Me:')
     message = host_name+':'+message
     f.write(message)
@@ -52,3 +53,4 @@ while True:
     message = client+':'+message
     f.write(message)
     print(client+':'+message)
+    f.close()
