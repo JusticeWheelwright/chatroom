@@ -12,6 +12,8 @@ This program utilizes a client to server relationship to create a chatroom where
 
 This program was developed using Visual studio code and python. The only required import for this program is the socket library.
 
+Notably this program also needs two computers to run. Or at least 1 on a virtual machine.
+
 # Useful Websites
 
 * [socket documentation](https://docs.python.org/3.6/library/socket.html)
